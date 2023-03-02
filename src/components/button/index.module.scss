@@ -1,0 +1,84 @@
+// base style
+.button {
+  position: relative;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  width: max-content;
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+  border: none;
+}
+
+// kind style
+.primary {
+  background-color: var(--c-blue-accent);
+  color: var(--c-white);
+
+  &:hover {
+    background-color: var(--c-blue-accent-hover);
+  }
+
+  &:active {
+    background-color: var(--c-blue-accent-active);
+  }
+}
+
+.outline {
+  background-color: transparent;
+  color: var(--c-blue-accent);
+  border: 1px solid var(--c-blue-accent);
+
+  &:hover {
+    background-color: var(--c-blue-accent-hover);
+    color: var(--c-white);
+  }
+
+  &:active {
+    background-color: transparent;
+    color: var(--c-blue-accent-active);
+    border-color: var(--c-blue-accent-active);
+  }
+}
+
+.link {
+  color: var(--c-blue-accent);
+  padding: 0 !important;
+  background-color: transparent;
+  min-width: unset !important;
+
+  &:hover {
+    color: var(--c-blue-accent-hover);
+  }
+
+  &:active {
+    color: var(--c-blue-accent-active);
+  }
+}
+
+// sizes style
+.small {
+  padding: 10px 24px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.large {
+  padding: 12px 54px;
+  font-size: 16px;
+  line-height: 24px;
+  min-width: 200px;
+}
+
+// additional style
+.withIcon {
+  display: inline-grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 5px;
+  padding: 14px 20px !important;
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+}
