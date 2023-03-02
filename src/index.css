@@ -24,12 +24,19 @@
 
 	--c-white: #ffffff;
 	--c-yellow: #ffd500;
+	--c-red: #ea1a4f;
+	--c-green: #28a879;
 	--c-blue-accent: #002cfb;
 	--c-blue-accent-hover: #0024cb;
 	--c-blue-accent-active: #274bc8;
 
+	--c-text-header: #899cb1;
+	--c-text-primary: #122945;
+	--c-text-success: #00a775;
+
 	--bg-side-bar: #091336;
 	--bg-side-bar-item-hover: #d8e4fb52;
+	--bg-progress-bar: #dee6f5;
 
 	--logo-color: #ffd500;
 }
@@ -40,4 +47,13 @@ body {
 
 svg path {
 	fill: currentColor;
+}
+
+.layout {
+	display: grid;
+	grid-template-columns: 240px 1fr;
+	grid-template-rows: auto 100vh;
+	grid-template-areas:
+		'side-bar header'
+		'side-bar main';
 }

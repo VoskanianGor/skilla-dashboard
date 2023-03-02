@@ -29,17 +29,10 @@ export default function SideBar() {
 					</li>
 				))}
 			</nav>
-			<Button>Распознать</Button>
-			<Button size="small">Распознать</Button>
-			<Button icon="add">Добавить заказ</Button>
-			<Button kind="outline">Оплата</Button>
-			<Button kind="outline" size="small">
-				Распознать
-			</Button>
-			<Button kind="link">Оплата</Button>
-			<Button kind="link" size="small">
-				Оплата
-			</Button>
+			<div className={s.buttons}>
+				<Button icon="add">Добавить заказ</Button>
+				<Button icon="alert">Оплата</Button>
+			</div>
 		</aside>
 	)
 }
