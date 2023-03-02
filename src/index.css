@@ -1,11 +1,41 @@
 @import '/node_modules/modern-normalize/modern-normalize.css';
 
+@font-face {
+	font-family: 'SF-Pro-Display';
+	src: url('./assets/fonts/sf-pro-display-regular.OTF');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'SF-Pro-Display';
+	src: url('./assets/fonts/sf-pro-display-medium.OTF');
+	font-weight: 500;
+}
+
 :root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-family: SF-Pro-Display, Inter, system-ui, Avenir, Helvetica, Arial,
+		sans-serif;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
+
+	--c-white: #ffffff;
+	--c-yellow: #ffd500;
+	--c-blue-accent: #002cfb;
+
+	--bg-side-bar: #091336;
+	--bg-side-bar-item-hover: #d8e4fb52;
+
+	--logo-color: #ffd500;
+}
+
+body {
+	font-family: 'SF-Pro-Display';
+}
+
+svg path {
+	fill: currentColor;
 }

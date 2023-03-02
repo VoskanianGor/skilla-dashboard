@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import calls from './mock.json'
+import calls from '../mock.json'
 
 const startDate = '2022-01-01'
 const endDate = '2022-12-31'
@@ -19,7 +19,7 @@ const getCalls = async () => {
 	return await res.json()
 }
 
-function App() {
+export default function CallsDashboard() {
 	// const [calls, setCalls] = useState([])
 
 	// useEffect(() => {
@@ -28,5 +28,3 @@ function App() {
 
 	return <div className="App">{JSON.stringify(calls)}</div>
 }
-
-export default App
