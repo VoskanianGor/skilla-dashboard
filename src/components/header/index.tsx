@@ -1,4 +1,12 @@
+import {
+	Dropdown,
+	DropdownContent,
+	DropdownItem,
+	DropdownSeparator,
+} from 'components/dropdown'
 import ProgressBar from 'components/progress-bar'
+import UserDropdown from 'components/user-dropdown'
+import { useState } from 'react'
 import s from './index.module.scss'
 
 const date = new Date()
@@ -14,6 +22,7 @@ function capitalizeFirstLetter(string: string) {
 }
 
 export default function Header() {
+	const [selected, setSelected] = useState(false)
 	return (
 		<header className={s.header}>
 			<div className={s.date}>{capitalizeFirstLetter(formattedDate)}</div>
@@ -33,7 +42,8 @@ export default function Header() {
 				</div>
 			</div>
 			<div>ИП Сидорова Александра Михайловна</div>
-			<div className={s.avatar}></div>
+			<div className={s.avatar} />
+			<UserDropdown />
 		</header>
 	)
 }

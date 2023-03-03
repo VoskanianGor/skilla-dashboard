@@ -32,11 +32,17 @@
 
 	--c-text-header: #899cb1;
 	--c-text-primary: #122945;
+	--c-text-secondary: #5e7793;
 	--c-text-success: #00a775;
+
+	--c-border: #eaf0fa;
+	--c-icon: #adbfdf;
 
 	--bg-side-bar: #091336;
 	--bg-side-bar-item-hover: #d8e4fb52;
 	--bg-progress-bar: #dee6f5;
+
+	--border-dropdown: 1px solid var(--c-border);
 
 	--logo-color: #ffd500;
 }

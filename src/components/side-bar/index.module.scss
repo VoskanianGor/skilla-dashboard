@@ -10,6 +10,7 @@
 
 .logo {
   padding-left: 12px;
+  user-select: none;
 }
 
 .nav {
@@ -25,6 +26,7 @@
     padding: 14px 12px;
     opacity: 0.6;
     cursor: pointer;
+    user-select: none;
 
     &:hover {
       --hovered: 1;

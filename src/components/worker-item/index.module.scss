@@ -1,0 +1,29 @@
+.worker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+
+  &__avatar {
+    width: 32px;
+    height: 32px;
+    aspect-ratio: 1/1;
+    border-radius: 999px;
+    background-color: var(--c-blue-accent);
+    object-fit: cover;
+  }
+
+  &__name {
+    font-size: 15px;
+    line-height: 23px;
+    text-transform: capitalize;
+  }
+
+  &.accent {
+    color: var(--c-blue-accent);
+
+    &:hover {
+      color: var(--c-blue-accent-hover);
+    }
+  }
+}

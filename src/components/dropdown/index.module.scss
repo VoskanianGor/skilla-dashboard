@@ -1,0 +1,124 @@
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: var(--c-text-primary);
+
+  label {
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+.arrowButton {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &.open {
+    transform: rotate(180deg);
+  }
+
+  &:hover {
+    color: var(--c-blue-accent-hover);
+  }
+}
+
+.content {
+  animation: slideIn 0.3s ease;
+  position: absolute;
+  top: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--c-white);
+  border: var(--border-dropdown);
+  box-shadow: 4px 16px 50px rgba(129, 135, 163, 0.24);
+  border-radius: 4px;
+  min-width: 204px;
+  overflow: hidden;
+
+  &.start {
+    left: 0;
+  }
+
+  &.end {
+    right: 0;
+  }
+
+  &.center {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.item {
+  --hovered: 0;
+
+  all: unset;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--c-text-secondary);
+  font-size: 14px;
+  line-height: 28px;
+  cursor: pointer;
+  user-select: none;
+
+  &.checked {
+    color: var(--c-blue-accent);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--c-blue-accent);
+    opacity: calc(var(--hovered) * 0.13);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+    box-shadow: 0 0 0 100vmax var(--c-blue-accent);
+    clip-path: inset(0 -100vmax);
+
+  }
+
+  &:hover {
+    --hovered: 1;
+
+    color: var(--c-text-primary);
+  }
+
+  &:focus {
+    --hovered: 1;
+  }
+}
+
+.label {
+  font-size: 15px;
+  line-height: 19px;
+  color: var(--c-text-secondary);
+  margin-bottom: 16px;
+}
+
+.separator {
+  height: 1px;
+  background-color: var(--c-border);
+  margin-block: 16px;
+}
+
+@keyframes slideIn {
+  from {
+    margin-top: 5px;
+  }
+
+  to {
+    margin-top: 0;
+  }
+}
