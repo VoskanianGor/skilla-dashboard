@@ -1,4 +1,4 @@
-export default function convertMinutesToHoursAndMinutes(minutes: number) {
+export default function formatTime(minutes: number) {
 	if (minutes === 0) {
 		return ''
 	}

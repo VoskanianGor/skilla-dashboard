@@ -4,9 +4,10 @@ import {
 	getCoreRowModel,
 	useReactTable,
 } from '@tanstack/react-table'
+import Checkbox from 'components/checkbox'
 import type { Call } from 'types/calls'
-import convertMinutesToHoursAndMinutes from 'utils/convert-minutes-to-hour-and-minutes'
 import formatPhoneNumber from 'utils/format-phone-number'
+import formatTime from 'utils/format-time'
 import data from '../../mock.json'
 import CallType from './call-type'
 import s from './index.module.scss'
@@ -56,11 +57,7 @@ const columns = [
 	}),
 	columnHelper.accessor('time', {
 		header: 'Длительность',
-		cell: info => (
-			<span className={s.time}>
-				{convertMinutesToHoursAndMinutes(info.getValue())}
-			</span>
-		),
+		cell: info => <span className={s.time}>{formatTime(info.getValue())}</span>,
 		size: 90,
 	}),
 ]
@@ -78,6 +75,9 @@ export default function Table() {
 				<thead className={s.header}>
 					{getHeaderGroups().map(headerGroup => (
 						<tr key={headerGroup.id}>
+							<th className={s.header__cell}>
+								<input type="checkbox" />
+							</th>
 							{headerGroup.headers.map(header => (
 								<th
 									className={s.header__cell}
@@ -96,6 +96,10 @@ export default function Table() {
 				<tbody className={s.body}>
 					{getRowModel().rows.map(row => (
 						<tr className={s.table__row} key={row.id}>
+							<td>
+								<Checkbox />
+								{/* <input type="checkbox" name="" id="" /> */}
+							</td>
 							{row.getVisibleCells().map(cell => (
 								<td key={cell.id}>
 									{flexRender(cell.column.columnDef.cell, cell.getContext())}
