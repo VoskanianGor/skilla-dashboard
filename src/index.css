@@ -26,7 +26,7 @@
 	--c-yellow: #ffd500;
 	--c-red: #ea1a4f;
 	--c-green: #28a879;
-	--c-blue-accent: #002cfb;
+	--c-blue-accent: #005ff8;
 	--c-blue-accent-hover: #0024cb;
 	--c-blue-accent-active: #274bc8;
 
@@ -41,14 +41,23 @@
 	--bg-side-bar: #091336;
 	--bg-side-bar-item-hover: #d8e4fb52;
 	--bg-progress-bar: #dee6f5;
+	--bg-main-page: #f1f4f9;
 
 	--border-dropdown: 1px solid var(--c-border);
 
 	--logo-color: #ffd500;
+
+	--z-index-dropdown: var(--z-index-max);
+
+	--z-index-10: 10;
+	--z-index-20: 20;
+	--z-index-max: 999;
 }
 
 body {
 	font-family: 'SF-Pro-Display';
+	font-weight: 400;
+	color: var(--c-text-primary);
 }
 
 svg path {
@@ -58,8 +67,9 @@ svg path {
 .layout {
 	display: grid;
 	grid-template-columns: 240px 1fr;
-	grid-template-rows: auto 100vh;
+	grid-template-rows: 64px auto;
 	grid-template-areas:
 		'side-bar header'
 		'side-bar main';
+	background-color: var(--bg-main-page);
 }

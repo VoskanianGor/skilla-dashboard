@@ -2,11 +2,12 @@
   grid-area: header;
   display: flex;
   align-items: center;
-  // justify-content: space-between;
+  justify-content: space-between;
   padding: 12px 115px;
   height: 64px;
   box-shadow: 0px 4px 5px #E9EDF3;
   color: var(--c-text-header);
+  background-color: var(--c-white);
 }
 
 .date {

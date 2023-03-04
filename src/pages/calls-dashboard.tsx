@@ -1,3 +1,4 @@
+import Table from 'components/table'
 import { useEffect, useState } from 'react'
 import calls from '../mock.json'
 
@@ -26,5 +27,9 @@ export default function CallsDashboard() {
 	// 	getCalls().then(setCalls)
 	// }, [])
 
-	return <div className="App">{JSON.stringify(calls)}</div>
+	return (
+		<div className="App">
+			<Table />
+		</div>
+	)
 }

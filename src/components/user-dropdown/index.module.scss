@@ -1,10 +1,25 @@
 .dropdown {
 
   &__content {
-    padding: 20px 32px 0;
+    padding: 20px 32px 32px;
   }
 }
 
+.dropdownItem {
+  --item-hovered: 0;
+
+  color: var(--c-blue-accent);
+
+  &__icon {
+    opacity: calc(var(--item-hovered) * 1);
+    color: var(--c-blue-accent-hover);
+  }
+
+  &:hover {
+    --item-hovered: 1;
+    color: var(--c-blue-accent-hover);
+  }
+}
 
 .user {
   color: var(--c-text-secondary);
@@ -66,5 +81,11 @@
 
   &:hover {
     color: var(--c-blue-accent-hover);
+  }
+}
+
+.workersGroup {
+  &+& {
+    margin-top: 24px;
   }
 }

@@ -15,7 +15,7 @@ export interface Call {
 	to_number: string
 	to_extension: string
 	is_skilla: number
-	status: string
+	status: Status
 	record: string
 	line_number: string
 	in_out: number
@@ -33,6 +33,8 @@ export interface Call {
 	person_surname: string
 	person_avatar: string
 }
+
+export type Status = 'Не дозвонился' | 'Дозвонился'
 
 export interface PartnerData {
 	id: string

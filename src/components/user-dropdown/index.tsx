@@ -10,7 +10,9 @@ import {
 	DropdownSeparator,
 } from 'components/dropdown'
 import WorkerItem from 'components/worker-item'
+import { Fragment } from 'react'
 import s from './index.module.scss'
+import { mockWorkers } from './mock-workers'
 
 interface UserDropdownProps {
 	name: string
@@ -60,15 +62,22 @@ export default function UserDropdown({
 					</div>
 					<DropdownSeparator />
 				</div>
-				<DropdownLabel>Операторы</DropdownLabel>
-				<DropdownItem>
-					<WorkerItem avatar="" name="alice doe" shortName />
-					icon
-				</DropdownItem>
-				<DropdownItem>
-					<WorkerItem kind="accent" avatar="" name="Mihael Jared" />
-					<LoginIcon />
-				</DropdownItem>
+				{mockWorkers.map(category => (
+					<div className={s.workersGroup} key={category.id}>
+						<DropdownLabel>{category.position}</DropdownLabel>
+						{category.workers.map(worker => (
+							<DropdownItem className={s.dropdownItem} key={worker.id}>
+								<WorkerItem
+									key={worker.id}
+									avatar={worker.avatar}
+									name={worker.name}
+								/>
+								{/* @ts-ignore */}
+								<LoginIcon className={s.dropdownItem__icon} />
+							</DropdownItem>
+						))}
+					</div>
+				))}
 			</DropdownContent>
 		</Dropdown>
 	)

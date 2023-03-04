@@ -48,9 +48,13 @@ export function Dropdown({ children, label }: DropdownProps) {
 	)
 }
 
-export function DropdownItem({ children, ...props }: DropdownItemProps) {
+export function DropdownItem({
+	children,
+	className,
+	...props
+}: DropdownItemProps) {
 	return (
-		<div className={clsx(s.item, props.className)} {...props}>
+		<div className={clsx(s.item, className)} {...props}>
 			{children}
 		</div>
 	)
@@ -58,6 +62,7 @@ export function DropdownItem({ children, ...props }: DropdownItemProps) {
 
 export function DropdownContent({
 	children,
+	className,
 	align = 'end',
 	topOffset = 0,
 	...props
@@ -65,7 +70,7 @@ export function DropdownContent({
 	return (
 		<>
 			<div style={{ marginTop: topOffset }} />
-			<div className={clsx(s.content, s[align], props.className)}>
+			<div className={clsx(s.content, s[align], className)} {...props}>
 				{children}
 			</div>
 		</>

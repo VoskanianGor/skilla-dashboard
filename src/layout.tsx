@@ -6,7 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 		<div className="layout">
 			<Header />
 			<SideBar />
-			{/* <main>{children}</main> */}
+			<main>{children}</main>
 		</div>
 	)
 }
