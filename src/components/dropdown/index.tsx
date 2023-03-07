@@ -6,7 +6,7 @@ import s from './index.module.scss'
 
 type DivProps = React.HTMLAttributes<HTMLDivElement>
 
-interface DropdownProps {
+interface DropdownProps extends DivProps {
 	children: React.ReactNode
 	label?: string
 }
@@ -21,7 +21,12 @@ interface DropdownItemProps extends DivProps {
 	children: React.ReactNode
 }
 
-export function Dropdown({ children, label }: DropdownProps) {
+export function Dropdown({
+	children,
+	label,
+	className,
+	...props
+}: DropdownProps) {
 	const [isOpen, setIsOpen] = useState(false)
 	const dropdownRef = useRef<HTMLDivElement>(null)
 	const contentRef = useRef<HTMLDivElement>(null)
@@ -32,7 +37,7 @@ export function Dropdown({ children, label }: DropdownProps) {
 	const toggle = () => setIsOpen(!isOpen)
 
 	return (
-		<div className={s.dropdown} ref={dropdownRef}>
+		<div className={clsx(s.dropdown, className)} ref={dropdownRef} {...props}>
 			{label && <label htmlFor={triggerId}>{label}</label>}
 
 			<button

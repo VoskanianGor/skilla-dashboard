@@ -20,7 +20,7 @@
       "status": "Дозвонился",
       "record": "MToxMDA2NzYxNToxNDMwMDM3NzExNzow",
       "line_number": "sip**se**",
-      "in_out": 0,
+      "in_out": 1,
       "from_site": 0,
       "source": "",
       "errors": [],
@@ -31,8 +31,8 @@
       "contact_name": "Николай",
       "contact_company": "ООО \"ВИНЛАБ-ЗАПАД\"",
       "person_id": 2731,
-      "person_name": "**",
-      "person_surname": "**",
+      "person_name": "Addsadasdasdasd",
+      "person_surname": "Addsadasdasdasd",
       "person_avatar": "https://lk.skilla.ru/img/noavatar.jpg"
     },
     {

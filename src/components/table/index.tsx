@@ -5,10 +5,12 @@ import {
 	useReactTable,
 } from '@tanstack/react-table'
 import Checkbox from 'components/checkbox'
+import { useCallsStore } from 'store/calls'
 import type { Call } from 'types/calls'
 import formatPhoneNumber from 'utils/format-phone-number'
 import formatTime from 'utils/format-time'
 import data from '../../mock.json'
+import Filters from '../filters'
 import CallType from './call-type'
 import s from './index.module.scss'
 
@@ -63,8 +65,10 @@ const columns = [
 ]
 
 export default function Table() {
+	const { filteredCalls } = useCallsStore()
+
 	const { getHeaderGroups, getRowModel } = useReactTable({
-		data: data.results as Call[],
+		data: filteredCalls as Call[],
 		columns,
 		getCoreRowModel: getCoreRowModel(),
 	})
@@ -76,7 +80,7 @@ export default function Table() {
 					{getHeaderGroups().map(headerGroup => (
 						<tr key={headerGroup.id}>
 							<th className={s.header__cell}>
-								<input type="checkbox" />
+								<Checkbox />
 							</th>
 							{headerGroup.headers.map(header => (
 								<th
@@ -96,9 +100,8 @@ export default function Table() {
 				<tbody className={s.body}>
 					{getRowModel().rows.map(row => (
 						<tr className={s.table__row} key={row.id}>
-							<td>
+							<td className={s.rowCheckbox}>
 								<Checkbox />
-								{/* <input type="checkbox" name="" id="" /> */}
 							</td>
 							{row.getVisibleCells().map(cell => (
 								<td key={cell.id}>

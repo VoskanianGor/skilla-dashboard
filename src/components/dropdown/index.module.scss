@@ -3,6 +3,8 @@
   display: flex;
   align-items: center;
   color: var(--c-text-primary);
+  width: max-content;
+  z-index: var(--z-index-dropdown);
 
   label {
     cursor: pointer;
@@ -18,6 +20,8 @@
   cursor: pointer;
   user-select: none;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  height: 100%;
 
   &.open {
     transform: rotate(180deg);
@@ -40,7 +44,6 @@
   border-radius: 4px;
   min-width: 204px;
   overflow: hidden;
-  z-index: var(--z-index-dropdown);
 
   &.start {
     left: 0;
@@ -69,6 +72,7 @@
   line-height: 28px;
   cursor: pointer;
   user-select: none;
+  width: max-content;
 
   &.checked {
     color: var(--c-blue-accent);

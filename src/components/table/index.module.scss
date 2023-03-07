@@ -1,18 +1,19 @@
 .tableWrapper {
-  // padding: 0 0 26px 40px;
   box-shadow: 0px 4px 5px #E9EDF3;
   border-radius: 8px;
   width: min(100%, 1440px);
   margin-inline: auto;
-  margin-top: 135px;
   overflow-y: scroll;
   height: 100vh;
-  background-color: var(--c-white);
+}
+
+.rowCheckbox {
+  opacity: 0;
 }
 
 .table {
+  background-color: var(--c-white);
   border-collapse: collapse;
-  // table-layout: fixed;
   width: 100%;
 
   &__row {
@@ -23,41 +24,52 @@
       min-height: 65px;
 
       &:first-of-type {
-        padding-left: 40px;
-        padding-right: 12px;
+        padding-inline: 12px;
       }
 
       &:last-of-type {
         padding-right: 40px;
       }
+
+      &>* {
+        vertical-align: middle;
+      }
     }
 
     &:hover {
       background-color: rgba(212, 223, 243, 0.17);
+
+      .rowCheckbox {
+        opacity: 1;
+      }
     }
   }
 }
 
 .header {
   &__cell {
+    position: sticky;
+    top: 0;
     text-align: start;
     font-size: 14px;
     line-height: 14px;
     font-weight: 400;
     color: var(--c-text-header);
     padding-bottom: 20px;
-    position: sticky;
-    top: 0;
     background-color: var(--c-white);
     padding-top: 26px;
+    z-index: var(--z-index-10);
 
     &:first-of-type {
-      padding-left: 40px;
-      padding-right: 12px;
+      padding-inline: 12px;
     }
 
     &:last-of-type {
       padding-right: 40px;
+    }
+
+    &>* {
+      vertical-align: middle;
     }
   }
 }

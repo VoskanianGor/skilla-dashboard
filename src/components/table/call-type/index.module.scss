@@ -1,7 +1,14 @@
+%sizes {
+  width: 24px;
+  height: 24px;
+}
+
 .success {
+  @extend %sizes;
   color: var(--c-green);
 }
 
 .error {
+  @extend %sizes;
   color: var(--c-red);
 }

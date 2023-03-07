@@ -13,6 +13,7 @@ export default defineConfig({
 			pages: '/src/pages',
 			types: '/src/types',
 			utils: '/src/utils',
+			store: '/src/store',
 		},
 	},
 })
