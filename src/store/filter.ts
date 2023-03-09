@@ -79,16 +79,6 @@ export const filterStore = proxy({
 			callsStore.calls.filter(call => call.person_id === workerId)
 		)
 	},
-	f: {
-		in_out: '',
-		person_id: '',
-	},
-	setF(key, value) {
-		filterStore.f[key] = value
-	},
-	handleFilter: (key, value) => {
-		filterStore.f = { ...filterStore.f, [key]: value }
-	},
 })
 
 export const useFilterStore = () => useSnapshot(filterStore)

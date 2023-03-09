@@ -1,10 +1,8 @@
 import { Dropdown, DropdownContent, DropdownItem } from 'components/dropdown'
-import WorkerItem from 'components/worker-item'
-import { Fragment, useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { useCallsStore } from 'store/calls'
-import { FilterIds, filtersData, useFilterStore } from 'store/filter'
+import { FilterIds, useFilterStore } from 'store/filter'
 import { Call } from 'types/calls'
-import cutLastName from 'utils/cut-last-name'
 import s from './index.module.scss'
 
 interface FilterOptions {
@@ -32,8 +30,6 @@ export default function Filters() {
 			} as const),
 		[calls]
 	)
-
-	const [f, setF] = useState<Partial<Call>>()
 
 	const handleFilter = (id: FilterIds, options: FilterOptions) => {
 		setLabel(id, getInitialLabel(id))

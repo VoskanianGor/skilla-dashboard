@@ -1,5 +1,5 @@
 import { Call } from 'types/calls'
-import { proxy, subscribe, useSnapshot } from 'valtio'
+import { proxy, useSnapshot } from 'valtio'
 import { filterStore } from './filter'
 
 const { f } = filterStore
@@ -7,11 +7,6 @@ const { f } = filterStore
 export const callsStore = proxy({
 	calls: [] as Call[],
 	filteredCalls: [] as Call[],
-	get filteredCalls2() {
-		return this.calls.filter(call => {
-			Object.entries(f).every(([key, value]) => {})
-		})
-	},
 	setCalls: (calls: Call[]) => {
 		callsStore.calls = calls
 		callsStore.filteredCalls = calls
@@ -22,7 +17,3 @@ export const callsStore = proxy({
 })
 
 export const useCallsStore = () => useSnapshot(callsStore)
-
-subscribe(callsStore, () => {
-	console.log('callsStore', callsStore.filteredCalls)
-})
