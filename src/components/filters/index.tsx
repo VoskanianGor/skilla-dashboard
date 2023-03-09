@@ -22,9 +22,9 @@ export default function Filters() {
 		() =>
 			({
 				types,
-				workers: getWorkers(calls),
+				workers: getWorkers(calls as Call[]),
 				calls: callsFilter,
-				sources: getSources(calls),
+				sources: getSources(calls as Call[]),
 				results: [],
 				errors,
 			} as const),
