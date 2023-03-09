@@ -1,0 +1,37 @@
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  background-color: var(--c-white);
+  border-radius: 48px;
+  width: fit-content;
+}
+
+.label {
+  color: var(--c-text-header);
+  margin-right: 0.5ch;
+}
+
+.amount {
+  font-weight: 500;
+}
+
+.buttonAdd {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  color: var(--c-blue-accent);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: var(--c-blue-accent-hover);
+  }
+
+  &:active {
+    color: var(--c-blue-accent-active);
+  }
+}

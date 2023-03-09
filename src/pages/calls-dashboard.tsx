@@ -1,3 +1,4 @@
+import BalanceBadge from 'components/balance-badge'
 import Filters from 'components/filters'
 import Player from 'components/player'
 import Table from 'components/table'
@@ -38,6 +39,7 @@ export default function CallsDashboard() {
 
 	return (
 		<div className={s.wrapper}>
+			<BalanceBadge amount={272} currency="₽" />
 			<Filters />
 			<Table />
 		</div>
