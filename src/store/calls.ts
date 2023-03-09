@@ -1,8 +1,5 @@
 import { Call } from 'types/calls'
 import { proxy, useSnapshot } from 'valtio'
-import { filterStore } from './filter'
-
-const { f } = filterStore
 
 export const callsStore = proxy({
 	calls: [] as Call[],
