@@ -1,13 +1,11 @@
-import {
-	Dropdown,
-	DropdownContent,
-	DropdownItem,
-	DropdownSeparator,
-} from 'components/dropdown'
+import SearchIcon from 'assets/icons/search.svg'
 import ProgressBar from 'components/progress-bar'
+import Stat from 'components/stat'
 import UserDropdown from 'components/user-dropdown'
 import { useState } from 'react'
 import s from './index.module.scss'
+import { statData } from './stat-data'
+import { userData } from './user-data'
 
 const date = new Date()
 const formatter = new Intl.DateTimeFormat('ru-RU', {
@@ -22,28 +20,20 @@ function capitalizeFirstLetter(string: string) {
 }
 
 export default function Header() {
-	const [selected, setSelected] = useState(false)
 	return (
 		<header className={s.header}>
 			<div className={s.date}>{capitalizeFirstLetter(formattedDate)}</div>
 
 			<div className={s.statWrapper}>
-				<div className={s.stat}>
-					Новые звонки <span>20 из 30 шт</span>
-					<ProgressBar color="var(--c-green)" percent={40} />
-				</div>
-				<div className={s.stat}>
-					Качество разговоров <span>40%</span>
-					<ProgressBar color="var(--c-yellow)" percent={40} />
-				</div>
-				<div className={s.stat}>
-					Конверсия в заказ <span>67%</span>
-					<ProgressBar color="var(--c-red)" percent={50} />
-				</div>
+				{statData.map((item, index) => (
+					<Stat key={index} {...item} />
+				))}
 			</div>
-			<div>ИП Сидорова Александра Михайловна</div>
+
+			<SearchIcon />
+			<div className={s.username}>{userData.name}</div>
 			<div className={s.avatar} />
-			<UserDropdown />
+			<UserDropdown {...userData} />
 		</header>
 	)
 }

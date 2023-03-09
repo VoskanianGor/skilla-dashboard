@@ -1,10 +1,12 @@
+import SearchIcon from 'assets/icons/search.svg'
+import clsx from 'clsx'
 import BalanceBadge from 'components/balance-badge'
+import Calendar from 'components/calendar'
 import Filters from 'components/filters'
-import Player from 'components/player'
 import Table from 'components/table'
 import { useEffect, useState } from 'react'
 import { useCallsStore } from 'store/calls'
-import calls from '../mock.json'
+import { Call } from 'types/calls'
 import s from './index.module.scss'
 
 const startDate = '2022-01-01'
@@ -22,26 +24,41 @@ const getCalls = async () => {
 		}
 	)
 
-	return await res.json()
+	const calls = await res.json()
+
+	return calls.results as Call[]
 }
 
 export default function CallsDashboard() {
 	const { setCalls } = useCallsStore()
-	// const [calls, setCalls] = useState([])
-
-	// useEffect(() => {
-	// 	getCalls().then(setCalls)
-	// }, [])
+	const [isLoading, setIsLoading] = useState(true)
 
 	useEffect(() => {
-		setCalls(calls.results)
+		getCalls()
+			.then(setCalls)
+			.finally(() => setIsLoading(false))
 	}, [])
 
 	return (
 		<div className={s.wrapper}>
-			<BalanceBadge amount={272} currency="₽" />
-			<Filters />
-			<Table />
+			<div className={s.balanceAndDate}>
+				<BalanceBadge amount={272} currency="₽" />
+				<Calendar />
+			</div>
+			<div className={s.searchAndFilters}>
+				<button className={s.searchButton}>
+					<SearchIcon />
+					Поиск по звонкам
+				</button>
+				<Filters />
+			</div>
+			<div
+				className={clsx(s.tableWrapper, {
+					[s.isLoading]: isLoading,
+				})}
+			>
+				<Table />
+			</div>
 		</div>
 	)
 }

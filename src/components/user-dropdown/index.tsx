@@ -38,26 +38,26 @@ export default function UserDropdown({
 			>
 				<div className={s.user}>
 					<div className={s.user__header}>
-						<span className={s.user__name}>Упоров Кирилл</span>
+						<span className={s.user__name}>{name}</span>
 						<button className={s.logout}>
 							<LogoutIcon />
 						</button>
 					</div>
 					<div className={s.user__info}>
-						<span className={s.user__position}>Директор</span>
+						<span className={s.user__position}>{position}</span>
 						<div className={s.dot} />
-						<span className={s.user__city}>Санкт-Петербург</span>
+						<span className={s.user__city}>{city}</span>
 					</div>
 					<div className={s.user__contacts}>
 						<div className={s.contact}>
 							{/* @ts-ignore */}
 							<PhoneIcon className={s.contact__icon} />
-							<span className={s.user__phone}>8 (800) 333-17-21</span>
+							<span className={s.user__phone}>{phone}</span>
 						</div>
 						<div className={s.contact}>
 							{/* @ts-ignore */}
 							<MailIcon className={s.contact__icon} />
-							<span className={s.user__email}>hi@skilla.ru</span>
+							<span className={s.user__email}>{email}</span>
 						</div>
 					</div>
 					<DropdownSeparator />

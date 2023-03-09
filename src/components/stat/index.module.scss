@@ -1,0 +1,14 @@
+.stat {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--c-text-primary);
+  gap: 7px;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  gap: 0.5ch;
+}

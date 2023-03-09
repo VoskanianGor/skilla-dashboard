@@ -1,14 +1,14 @@
 import s from './index.module.scss'
 
 interface ProgressBarProps {
-	percent: number
+	progress: number
 	color: string
 }
 
-export default function ProgressBar({ color, percent }: ProgressBarProps) {
+export default function ProgressBar({ color, progress }: ProgressBarProps) {
 	const styles = {
 		'--local-bg-progress': color,
-		'--local-progress-percent': `${percent}%`,
+		'--local-progress-percent': `${progress}%`,
 	} as React.CSSProperties
 
 	return (

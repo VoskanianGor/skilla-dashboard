@@ -1,0 +1,53 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: fit-content;
+}
+
+.arrowButton {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-icon);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:first-of-type {
+    transform: rotate(90deg);
+  }
+
+  &:last-of-type {
+    transform: rotate(-90deg);
+  }
+
+  &:hover {
+    color: var(--c-blue-accent);
+  }
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--c-icon);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: var(--c-blue-accent);
+  }
+}
+
+.dateButton {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--c-blue-accent);
+}
