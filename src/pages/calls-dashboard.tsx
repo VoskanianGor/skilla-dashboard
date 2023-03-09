@@ -38,7 +38,6 @@ export default function CallsDashboard() {
 
 	return (
 		<div className={s.wrapper}>
-			<Player callId="MToxMDA2NzYxNToxNDMwMDM3NzExNzow" partnershipId={578} />
 			<Filters />
 			<Table />
 		</div>

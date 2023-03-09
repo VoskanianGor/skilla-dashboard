@@ -7,7 +7,7 @@ import { useState } from 'react'
 import formatTime from 'utils/format-time'
 import s from './index.module.scss'
 
-const getCallRecord = async (callId: string, partnershipId: number) => {
+const getCallRecord = async (callId: string, partnershipId: string) => {
 	const res = await fetch(
 		`https://api.skilla.ru/mango/getRecord?record=${callId}&partnership_id=${partnershipId}`,
 		{
@@ -25,12 +25,17 @@ const getCallRecord = async (callId: string, partnershipId: number) => {
 	return await res.blob()
 }
 
-interface PlayerProps {
+export interface PlayerProps {
 	callId: string
-	partnershipId: number
+	partnershipId: string
+	externalDuration: number
 }
 
-export default function Player({ callId, partnershipId }: PlayerProps) {
+export default function Player({
+	callId,
+	partnershipId,
+	externalDuration,
+}: PlayerProps) {
 	const [audio, setAudio] = useState<HTMLAudioElement | null>(null)
 	const [isPlaying, setIsPlaying] = useState(false)
 	const [currentTime, setCurrentTime] = useState(0)
@@ -91,7 +96,7 @@ export default function Player({ callId, partnershipId }: PlayerProps) {
 
 	return (
 		<div className={s.player}>
-			{formatTime(restTime)}
+			{formatTime(restTime > 0 ? restTime : externalDuration)}
 			<button
 				className={s.button}
 				onClick={isPlaying ? handlePause : handlePlay}
@@ -103,11 +108,13 @@ export default function Player({ callId, partnershipId }: PlayerProps) {
 				type="range"
 				value={currentTime}
 				max={duration}
-				style={{ backgroundSize: `${audioProgress}% 100%` }}
+				style={{
+					backgroundSize: `${audioProgress}% 100%`,
+				}}
 			/>
 			<div className={s.icons}>
 				<DownloadIcon />
-				<CloseIcon />
+				{audio && <CloseIcon />}
 			</div>
 		</div>
 	)

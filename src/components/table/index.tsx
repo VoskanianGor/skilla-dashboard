@@ -5,14 +5,13 @@ import {
 	useReactTable,
 } from '@tanstack/react-table'
 import Checkbox from 'components/checkbox'
+import PhoneOrName from 'components/phone-or-name'
 import { useCallsStore } from 'store/calls'
 import type { Call } from 'types/calls'
 import formatPhoneNumber from 'utils/format-phone-number'
-import formatTime from 'utils/format-time'
-import data from '../../mock.json'
-import Filters from '../filters'
 import CallType from './call-type'
 import s from './index.module.scss'
+import TimeItem from './time-item'
 
 const columnHelper = createColumnHelper<Call>()
 
@@ -40,27 +39,43 @@ const columns = [
 	}),
 	columnHelper.accessor('to_number', {
 		header: 'Звонок',
-		cell: info => (
-			<PhoneOrName
-				phone={info.getValue()}
-				name={info.row.original.contact_name}
-				company={info.row.original.contact_company}
-			/>
-		),
+		cell: info => {
+			const ctx = info.row.original
+
+			return (
+				<PhoneOrName
+					phone={info.getValue()}
+					name={ctx.contact_name}
+					company={ctx.contact_company}
+				/>
+			)
+		},
 		size: 326,
 	}),
 	columnHelper.accessor('source', {
 		header: 'Источник',
 		size: 214,
 	}),
-	columnHelper.accessor('status', {
+	columnHelper.accessor('results', {
 		header: 'Оценка',
-		size: 461,
+		cell: info => <span></span>,
+		size: 200,
 	}),
 	columnHelper.accessor('time', {
 		header: 'Длительность',
-		cell: info => <span className={s.time}>{formatTime(info.getValue())}</span>,
-		size: 90,
+		cell: info => {
+			const ctx = info.row.original
+
+			return (
+				<TimeItem
+					time={info.getValue()}
+					callId={ctx.record}
+					partnershipId={ctx.partnership_id}
+					externalDuration={info.getValue()}
+				/>
+			)
+		},
+		size: 365,
 	}),
 ]
 
@@ -113,23 +128,5 @@ export default function Table() {
 				</tbody>
 			</table>
 		</div>
-	)
-}
-
-interface PhoneOrNameProps {
-	phone: string
-	name?: string
-	company?: string
-}
-
-function PhoneOrName({ phone, name, company }: PhoneOrNameProps) {
-	if (!name || !company) {
-		return <span>{formatPhoneNumber(phone)}</span>
-	}
-
-	return (
-		<span>
-			{name} <span className={s.company}>{company}</span>
-		</span>
 	)
 }
