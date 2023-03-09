@@ -1,4 +1,5 @@
 import Filters from 'components/filters'
+import Player from 'components/player'
 import Table from 'components/table'
 import { useEffect, useState } from 'react'
 import { useCallsStore } from 'store/calls'
@@ -37,6 +38,7 @@ export default function CallsDashboard() {
 
 	return (
 		<div className={s.wrapper}>
+			<Player callId="MToxMDA2NzYxNToxNDMwMDM3NzExNzow" partnershipId={578} />
 			<Filters />
 			<Table />
 		</div>
